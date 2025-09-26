@@ -8,11 +8,15 @@ import base64
 import requests
 import json
 import uuid
+from dotenv import load_dotenv
+
+# .env 파일 로드
+load_dotenv()
 
 # Flask 앱 생성
 app = Flask(__name__)
 # CORS 설정 - 프론트엔드에서 오는 요청 허용
-CORS(app, resources={r"/chat": {"origins": ["http://localhost:5000", "http://localhost:3000", "http://localhost:5173","https://frontend-movie-ni4eyurpy-qwerewqwerews-projects.vercel.app","https://frontend-movie-theta.vercel.app"]}})
+CORS(app, resources={r"/chat": {"origins": ["http://localhost:5000", "http://localhost:3000", "http://localhost:5173","https://frontend-opal-delta-75.vercel.app","https://frontend-git-main-kjy6282-4524s-projects.vercel.app","https://frontend-m3b37n8us-kjy6282-4524s-projects.vercel.app/"]}})
 
 # 환경변수에서 키 읽어오기
 CLOVA_INVOKE_URL = os.environ.get('CHATBOT_INVOKE_URL')
@@ -146,4 +150,5 @@ if __name__ == '__main__':
     #배포용
     #port=int(os.environ.get('PORT',10000))
     #app.run(debug=False, host='0.0.0.0', port=port)
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    #개발용
+    app.run(debug=True, host='0.0.0.0', port=10000)
